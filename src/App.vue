@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Login v-bind:user="user" v-on:login="login"></Login>
-    <Profile v-bind:profile="user.profile"></Profile>
+    <Profile v-bind:profile="user.profile" v-on:ageEdited="ageEdited"></Profile>
   </div>
 </template>
 
@@ -15,7 +15,10 @@ export default {
     return {
       user: {
         name: null,
-        profile: null
+        profile: {
+          age: null,
+          height: null
+        }
       }
     }
   },
@@ -26,6 +29,10 @@ export default {
   methods: {
     login (user) {
       this.user = user
+    },
+
+    ageEdited (age) {
+      this.user.profile.age = age
     }
   }
 }
