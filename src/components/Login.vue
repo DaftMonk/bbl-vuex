@@ -7,23 +7,16 @@
 
 <script>
 export default {
-  data () {
-    return {
-      user: {
-        name: null,
-        profile: null
-      }
-    }
-  },
+  props: ['user'],
   methods: {
     login () {
-      this.user = {
+      this.$emit('login', {
         name: 'bob',
         profile: {
           age: 23,
           height: '5\'11'
         }
-      }
+      })
     }
   }
 }
