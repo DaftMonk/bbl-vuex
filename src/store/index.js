@@ -3,6 +3,20 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+let apiLogin = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        name: 'bob',
+        profile: {
+          age: 23,
+          height: '5\'11'
+        }
+      })
+    }, 1000)
+  })
+}
+
 export const store = new Vuex.Store({
   state: {
     user: {
@@ -15,14 +29,8 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
-    login (state) {
-      state.user = {
-        name: 'bob',
-        profile: {
-          age: 23,
-          height: '5\'11'
-        }
-      }
+    loginSuccess (state, payload) {
+      state.user = payload
     },
 
     increaseAge (state) {
@@ -36,6 +44,14 @@ export const store = new Vuex.Store({
     },
     username (state) {
       return state.user.name
+    }
+  },
+
+  actions: {
+    login ({commit}) {
+      apiLogin().then((user) => {
+        commit('loginSuccess', user)
+      })
     }
   }
 })

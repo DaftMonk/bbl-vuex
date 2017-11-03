@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters(['username'])
   },
   methods: {
-    ...mapMutations(['login'])
+    ...mapActions(['login'])
   }
 }
 </script>
