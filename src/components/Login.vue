@@ -6,16 +6,14 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   computed: {
-    username () {
-      return this.$store.state.user.name
-    }
+    ...mapGetters(['username'])
   },
   methods: {
-    login () {
-      this.$store.commit('login')
-    }
+    ...mapMutations(['login'])
   }
 }
 </script>

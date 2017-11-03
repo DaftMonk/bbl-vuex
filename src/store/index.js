@@ -28,5 +28,14 @@ export const store = new Vuex.Store({
     increaseAge (state) {
       state.user.profile.age = state.user.profile.age + 1
     }
+  },
+
+  getters: {
+    profile (state) {
+      return state.user.profile
+    },
+    username (state) {
+      return state.user.name
+    }
   }
 })

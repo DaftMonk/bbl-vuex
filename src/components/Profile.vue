@@ -7,13 +7,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import EditProfile from '@/components/EditProfile'
 
 export default {
   computed: {
-    profile () {
-      return this.$store.state.user.profile
-    }
+    ...mapGetters(['profile'])
   },
   components: {
     EditProfile

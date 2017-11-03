@@ -3,16 +3,14 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   computed: {
-    profile () {
-      return this.$store.state.user.profile
-    }
+    ...mapGetters(['profile'])
   },
   methods: {
-    increaseAge () {
-      this.$store.commit('increaseAge')
-    }
+    ...mapMutations(['increaseAge'])
   }
 }
 </script>
