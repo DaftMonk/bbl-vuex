@@ -1,13 +1,19 @@
 <template>
-  <div class="card"><button class="btn-lg btn-info" v-on:click="increaseAge">add age</button> age: {{ age }}</div>
+  <div class="card"><button class="btn-lg btn-info" v-on:click="increaseAge">add age</button> age: {{ store.user.profile.age }}</div>
 </template>
 
 <script>
+import { store } from '../main'
+
 export default {
-  props: ['age'],
+  data () {
+    return {
+      store
+    }
+  },
   methods: {
     increaseAge () {
-      this.$emit('ageEdited', this.age + 1)
+      store.user.profile.age = store.user.profile.age + 1
     }
   }
 }

@@ -5,6 +5,16 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+export const store = {
+  user: {
+    name: null,
+    profile: {
+      age: null,
+      height: null
+    }
+  }
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

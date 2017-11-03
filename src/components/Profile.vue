@@ -1,17 +1,21 @@
 <template>
-  <div v-if="profile" class="card">
-    Your age is {{ profile.age }}
-    Your height is {{ profile.height }}
-    <EditProfile v-bind:age="profile.age" v-on:ageEdited="(age) => $emit('ageEdited', age)"></EditProfile>
+  <div v-if="store.user.profile" class="card">
+    Your age is {{ store.user.profile.age }}
+    Your height is {{ store.user.profile.height }}
+    <EditProfile></EditProfile>
   </div>
 </template>
 
 <script>
+import { store } from '../main'
 import EditProfile from '@/components/EditProfile'
 
 export default {
-  props: ['profile'],
-
+  data () {
+    return {
+      store
+    }
+  },
   components: {
     EditProfile
   }
