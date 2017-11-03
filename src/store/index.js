@@ -18,6 +18,16 @@ let apiLogin = () => {
   })
 }
 
+export const mutations = {
+  loginSuccess (state, payload) {
+    state.user = payload
+  },
+
+  increaseAge (state) {
+    state.user.profile.age = state.user.profile.age + 1
+  }
+}
+
 export const store = new Vuex.Store({
   state: {
     user: {
@@ -29,15 +39,7 @@ export const store = new Vuex.Store({
     }
   },
 
-  mutations: {
-    loginSuccess (state, payload) {
-      state.user = payload
-    },
-
-    increaseAge (state) {
-      state.user.profile.age = state.user.profile.age + 1
-    }
-  },
+  mutations,
 
   getters: {
     profile (state) {
