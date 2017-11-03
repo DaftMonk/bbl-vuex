@@ -1,7 +1,7 @@
 <template>
-  <div v-if="$store.state.user.profile" class="card">
-    Your age is {{ $store.state.user.profile.age }}
-    Your height is {{ $store.state.user.profile.height }}
+  <div v-if="profile" class="card">
+    Your age is {{ profile.age }}
+    Your height is {{ profile.height }}
     <EditProfile></EditProfile>
   </div>
 </template>
@@ -10,6 +10,11 @@
 import EditProfile from '@/components/EditProfile'
 
 export default {
+  computed: {
+    profile () {
+      return this.$store.state.user.profile
+    }
+  },
   components: {
     EditProfile
   }

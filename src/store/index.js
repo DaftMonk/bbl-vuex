@@ -12,5 +12,21 @@ export const store = new Vuex.Store({
         height: null
       }
     }
+  },
+
+  mutations: {
+    login (state) {
+      state.user = {
+        name: 'bob',
+        profile: {
+          age: 23,
+          height: '5\'11'
+        }
+      }
+    },
+
+    increaseAge (state) {
+      state.user.profile.age = state.user.profile.age + 1
+    }
   }
 })

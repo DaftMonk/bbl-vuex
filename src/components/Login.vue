@@ -1,21 +1,20 @@
 <template>
   <div class="card">
-    <button class="btn-lg btn-primary" v-if="!$store.state.user.name" v-on:click="login">Log in</button>
-    <div class="card-body">{{ $store.state.user.name ? 'Hi ' + $store.state.user.name : 'Not logged in ' }}</div>
+    <button class="btn-lg btn-primary" v-if="!username" v-on:click="login">Log in</button>
+    <div class="card-body">{{ username ? 'Hi ' + username : 'Not logged in ' }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    username () {
+      return this.$store.state.user.name
+    }
+  },
   methods: {
     login () {
-      this.$store.state.user = {
-        name: 'bob',
-        profile: {
-          age: 23,
-          height: '5\'11'
-        }
-      }
+      this.$store.commit('login')
     }
   }
 }

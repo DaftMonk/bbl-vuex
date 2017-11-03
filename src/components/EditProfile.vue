@@ -1,12 +1,17 @@
 <template>
-  <div class="card"><button class="btn-lg btn-info" v-on:click="increaseAge">add age</button> age: {{ $store.state.user.profile.age }}</div>
+  <div class="card"><button class="btn-lg btn-info" v-on:click="increaseAge">add age</button> age: {{ profile.age }}</div>
 </template>
 
 <script>
 export default {
+  computed: {
+    profile () {
+      return this.$store.state.user.profile
+    }
+  },
   methods: {
     increaseAge () {
-      this.$store.state.user.profile.age = this.$store.state.user.profile.age + 1
+      this.$store.commit('increaseAge')
     }
   }
 }
