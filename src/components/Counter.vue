@@ -4,16 +4,17 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   computed: {
     ...mapGetters({
-      'count': 'counter/count'
+      'count': types.COUNT_COUNTER
     })
   },
   methods: {
     ...mapMutations({
-      'increment': 'counter/increment'
+      'increment': types.MUTATE_INCREMENT_COUNTER
     })
   }
 }

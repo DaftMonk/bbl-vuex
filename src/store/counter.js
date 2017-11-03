@@ -1,16 +1,18 @@
+import * as types from './types'
+
 export default {
   state: {
     count: 0
   },
 
   getters: {
-    'counter/count': (state) => {
+    [types.COUNT_COUNTER]: (state) => {
       return state.count
     }
   },
 
   mutations: {
-    'counter/increment': (state) => {
+    [types.MUTATE_INCREMENT_COUNTER]: (state) => {
       state.count++
     }
   }
