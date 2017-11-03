@@ -1,22 +1,15 @@
 <template>
   <div class="card">
-    <button class="btn-lg btn-primary" v-if="!store.user.name" v-on:click="login">Log in</button>
-    <div class="card-body">{{ store.user.name ? 'Hi ' + store.user.name : 'Not logged in ' }}</div>
+    <button class="btn-lg btn-primary" v-if="!$store.state.user.name" v-on:click="login">Log in</button>
+    <div class="card-body">{{ $store.state.user.name ? 'Hi ' + $store.state.user.name : 'Not logged in ' }}</div>
   </div>
 </template>
 
 <script>
-import { store } from '../main'
-
 export default {
-  data () {
-    return {
-      store
-    }
-  },
   methods: {
     login () {
-      store.user = {
+      this.$store.state.user = {
         name: 'bob',
         profile: {
           age: 23,

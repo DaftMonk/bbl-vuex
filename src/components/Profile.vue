@@ -1,21 +1,15 @@
 <template>
-  <div v-if="store.user.profile" class="card">
-    Your age is {{ store.user.profile.age }}
-    Your height is {{ store.user.profile.height }}
+  <div v-if="$store.state.user.profile" class="card">
+    Your age is {{ $store.state.user.profile.age }}
+    Your height is {{ $store.state.user.profile.height }}
     <EditProfile></EditProfile>
   </div>
 </template>
 
 <script>
-import { store } from '../main'
 import EditProfile from '@/components/EditProfile'
 
 export default {
-  data () {
-    return {
-      store
-    }
-  },
   components: {
     EditProfile
   }
